@@ -21,6 +21,8 @@ export function FAQ() {
         <SectionHeading
           eyebrow="FAQ"
           title="Frequently Asked Questions"
+          titleId="faq-heading"
+          titleClassName="text-gradient-instagram"
           description="Everything you need to know about our trade value calculator."
         />
 

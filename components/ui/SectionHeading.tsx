@@ -9,6 +9,8 @@ interface SectionHeadingProps {
   description?: string;
   align?: "center" | "left";
   className?: string;
+  titleClassName?: string;
+  titleId?: string;
 }
 
 export function SectionHeading({
@@ -17,6 +19,8 @@ export function SectionHeading({
   description,
   align = "center",
   className,
+  titleClassName,
+  titleId,
 }: SectionHeadingProps) {
   return (
     <motion.div
@@ -35,7 +39,13 @@ export function SectionHeading({
           {eyebrow}
         </span>
       )}
-      <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+      <h2
+        id={titleId}
+        className={cn(
+          "text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl",
+          titleClassName ?? "text-foreground"
+        )}
+      >
         {title}
       </h2>
       {description && (
