@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 255 250 252;
+    --foreground: 30 15 35;
+    --muted-foreground: 120 90 110;
+    --card: 255 255 255;
+    --border: 252 228 236;
+  }
+
+  .dark {
+    /* Deep purple-tinted dark (Instagram night vibe) */
+    --background: 18 10 28;
+    --foreground: 252 248 252;
+    --muted-foreground: 180 160 190;
+    --card: 28 16 40;
+    --border: 60 30 70;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    background-color: rgb(var(--background));
+    color: rgb(var(--foreground));
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-brand-500 ring-offset-2;
+    ring-offset-color: rgb(var(--background));
+  }
+}
+
+@layer utilities {
+  .text-muted-foreground {
+    color: rgb(var(--muted-foreground));
+  }
+
+  .bg-background {
+    background-color: rgb(var(--background));
+  }
+
+  .text-foreground {
+    color: rgb(var(--foreground));
+  }
+
+  /* Instagram gradient — plain CSS (Tailwind @apply can't resolve custom bg utilities) */
+  .text-gradient-instagram {
+    background-image: linear-gradient(
+      135deg,
+      #833ab4 0%,
+      #c13584 30%,
+      #e1306c 55%,
+      #f77737 85%,
+      #fcaf45 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .bg-gradient-instagram {
+    background-image: linear-gradient(
+      135deg,
+      #833ab4 0%,
+      #c13584 30%,
+      #e1306c 55%,
+      #f77737 85%,
+      #fcaf45 100%
+    );
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
