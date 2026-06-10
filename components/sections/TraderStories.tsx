@@ -481,7 +481,7 @@ export function TraderStories() {
                 </div>
 
                 <p className="mt-4 border-t border-white/8 pt-4 text-[14px] italic leading-relaxed text-white/45">
-                  "{story.quote}"
+                  &ldquo;{story.quote}&rdquo;
                 </p>
               </motion.div>
             </AnimatePresence>
