@@ -1,4 +1,5 @@
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
+import { SmoothScroll } from "@/components/providers/SmoothScroll";
 import { BackToTop } from "@/components/ui/BackToTop";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -8,20 +9,7 @@ import {
   getWebSiteSchema,
 } from "@/lib/schema";
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-  display: "swap",
-});
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://tradevaluecalculator.com";
@@ -113,21 +101,8 @@ export default function RootLayout({
   ];
 
   return (
-    <html lang="en-US" suppressHydrationWarning>
+    <html lang="en-US">
       <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  var t = localStorage.getItem('tvc-theme');
-                  var d = t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches);
-                  document.documentElement.classList.toggle('dark', d);
-                } catch (e) {}
-              })();
-            `,
-          }}
-        />
         {jsonLd.map((schema, i) => (
           <script
             key={i}
@@ -136,14 +111,14 @@ export default function RootLayout({
           />
         ))}
       </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} font-sans min-h-screen`}
-      >
+      <body className="min-h-screen bg-white">
         <ThemeProvider>
-          <Navbar />
-          <main>{children}</main>
-          <Footer />
-          <BackToTop />
+          <SmoothScroll>
+            <Navbar />
+            <main>{children}</main>
+            <Footer />
+            <BackToTop />
+          </SmoothScroll>
         </ThemeProvider>
       </body>
     </html>

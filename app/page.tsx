@@ -4,24 +4,18 @@ import { Stats } from "@/components/sections/Stats";
 import { Features } from "@/components/sections/Features";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { Monetization } from "@/components/sections/Monetization";
+import { TraderStories } from "@/components/sections/TraderStories";
 import { FAQ } from "@/components/sections/FAQ";
-import { AdPlaceholder } from "@/components/ui/AdPlaceholder";
-
 export default function HomePage() {
   return (
     <>
       <Hero />
-
-      {/* Ad placement: below hero — high viewability for AdSense */}
-      <div className="mx-auto max-w-7xl px-4 pb-8 sm:px-6 lg:px-8">
-        <AdPlaceholder slot="banner" />
-      </div>
-
       <TradeCalculator />
       <Stats />
       <Features />
       <HowItWorks />
       <Monetization />
+      <TraderStories />
       <FAQ />
     </>
   );

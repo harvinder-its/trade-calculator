@@ -42,6 +42,7 @@ export function ScrollReveal({
       viewport={{ once: true, margin: "-50px" }}
       variants={variants}
       className={cn(className)}
+      suppressHydrationWarning
     >
       {children}
     </motion.div>

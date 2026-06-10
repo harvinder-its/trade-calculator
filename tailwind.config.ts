@@ -12,62 +12,57 @@ const config: Config = {
       colors: {
         background: "rgb(var(--background) / <alpha-value>)",
         foreground: "rgb(var(--foreground) / <alpha-value>)",
-        /* Instagram-inspired brand scale (purple → magenta → pink) */
-        brand: {
-          50: "#fdf2f8",
-          100: "#fce7f3",
-          200: "#fbcfe8",
-          300: "#f9a8d4",
-          400: "#f472b6",
-          500: "#E1306C",
-          600: "#C13584",
-          700: "#833AB4",
-          800: "#6b2d96",
-          900: "#552478",
-          950: "#3b1854",
+        google: {
+          blue: "#1A73E8",
+          "blue-light": "#E8F0FE",
+          "blue-mid": "#4285F4",
+          green: "#34A853",
+          "green-light": "#E6F4EA",
+          red: "#EA4335",
+          "red-light": "#FCE8E6",
+          yellow: "#FBBC04",
+          "yellow-light": "#FEF7E0",
+          gray: "#5F6368",
+          "gray-light": "#F8F9FA",
+          "gray-border": "#E8EAED",
+          dark: "#202124",
         },
-        accent: {
-          purple: "#833AB4",
-          magenta: "#C13584",
-          pink: "#E1306C",
-          red: "#FD1D1D",
-          orange: "#F77737",
-          yellow: "#FCAF45",
-          green: "#22c55e",
+        brand: {
+          50: "#E8F0FE",
+          100: "#D2E3FC",
+          200: "#AECBFA",
+          300: "#7BAAF7",
+          400: "#4285F4",
+          500: "#1A73E8",
+          600: "#1765CC",
+          700: "#1557AE",
+          800: "#0F4699",
+          900: "#0D3B80",
+          950: "#082966",
         },
       },
       fontFamily: {
-        sans: ["var(--font-geist-sans)", "system-ui", "sans-serif"],
-        mono: ["var(--font-geist-mono)", "monospace"],
+        sans: ["'Google Sans'", "'DM Sans'", "system-ui", "sans-serif"],
+        display: ["'Google Sans Display'", "'Google Sans'", "system-ui", "sans-serif"],
+        mono: ["'Roboto Mono'", "monospace"],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        /* Official Instagram 45° gradient */
-        instagram:
-          "linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)",
-        /* Brand gradient: purple → pink → orange */
-        "instagram-brand":
-          "linear-gradient(135deg, #833AB4 0%, #C13584 30%, #E1306C 55%, #F77737 85%, #FCAF45 100%)",
-        "hero-glow":
-          "radial-gradient(ellipse 80% 50% at 50% -20%, rgba(131, 58, 180, 0.35), transparent)",
-        "card-glow":
-          "radial-gradient(ellipse at center, rgba(225, 48, 108, 0.18), transparent 70%)",
+        "google-gradient":
+          "linear-gradient(135deg, #4285F4 0%, #34A853 50%, #EA4335 100%)",
+        "blue-gradient":
+          "linear-gradient(135deg, #1A73E8 0%, #4285F4 100%)",
+        "hero-subtle":
+          "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(26,115,232,0.06), transparent)",
       },
       boxShadow: {
-        glow: "0 0 40px rgba(225, 48, 108, 0.35)",
-        "glow-purple": "0 0 40px rgba(131, 58, 180, 0.35)",
-        "glow-orange": "0 0 40px rgba(247, 119, 55, 0.3)",
-        glass: "0 8px 32px rgba(0, 0, 0, 0.12)",
+        card: "0 1px 3px rgba(60,64,67,0.08), 0 4px 12px rgba(60,64,67,0.06)",
+        "card-hover": "0 2px 8px rgba(60,64,67,0.12), 0 8px 24px rgba(60,64,67,0.08)",
+        "button-blue": "0 1px 3px rgba(26,115,232,0.3)",
       },
-      animation: {
-        "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
-        float: "float 6s ease-in-out infinite",
-      },
-      keyframes: {
-        float: {
-          "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-12px)" },
-        },
+      borderRadius: {
+        "2xl": "16px",
+        "3xl": "24px",
       },
     },
   },

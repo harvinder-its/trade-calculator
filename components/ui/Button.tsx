@@ -14,18 +14,19 @@ interface ButtonProps extends HTMLMotionProps<"button"> {
 
 const variants: Record<ButtonVariant, string> = {
   primary:
-    "bg-gradient-instagram text-white shadow-glow hover:shadow-glow-orange border border-white/10",
+    "bg-google-blue text-white shadow-button-blue hover:bg-[#1765CC]",
   secondary:
-    "bg-white/10 dark:bg-white/5 text-foreground border border-white/20 hover:bg-white/20 backdrop-blur-sm",
-  ghost: "text-foreground hover:bg-white/10",
+    "bg-white text-google-dark border border-google-gray-border shadow-sm hover:bg-google-gray-light hover:border-google-gray",
+  ghost:
+    "text-google-dark hover:bg-google-gray-light",
   outline:
-    "border border-brand-500/50 text-brand-600 dark:text-brand-400 hover:bg-brand-500/10",
+    "border border-google-blue text-google-blue hover:bg-google-blue-light",
 };
 
 const sizes: Record<ButtonSize, string> = {
-  sm: "px-4 py-2 text-sm",
-  md: "px-6 py-3 text-base",
-  lg: "px-8 py-4 text-lg font-semibold",
+  sm: "px-4 py-2 text-[13px] rounded-full",
+  md: "px-6 py-2.5 text-[14px] rounded-full",
+  lg: "px-7 py-3.5 text-[15px] rounded-full",
 };
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
@@ -33,10 +34,10 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <motion.button
         ref={ref}
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.98 }}
+        whileHover={{ scale: 1.01 }}
+        whileTap={{ scale: 0.99 }}
         className={cn(
-          "inline-flex items-center justify-center gap-2 rounded-xl font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+          "inline-flex items-center justify-center gap-2 font-medium transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-google-blue focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
           variants[variant],
           sizes[size],
           className

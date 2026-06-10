@@ -24,10 +24,10 @@ export function SectionHeading({
 }: SectionHeadingProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 24 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.45 }}
       className={cn(
         "mb-12 max-w-3xl",
         align === "center" && "mx-auto text-center",
@@ -35,21 +35,21 @@ export function SectionHeading({
       )}
     >
       {eyebrow && (
-        <span className="mb-3 inline-block rounded-full border border-brand-500/30 bg-brand-500/10 px-4 py-1 text-sm font-medium text-brand-600 dark:text-brand-400">
+        <span className="mb-3 inline-block text-[13px] font-semibold uppercase tracking-widest text-google-blue">
           {eyebrow}
         </span>
       )}
       <h2
         id={titleId}
         className={cn(
-          "text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl",
-          titleClassName ?? "text-foreground"
+          "text-[2rem] font-bold tracking-tight sm:text-[2.5rem]",
+          titleClassName ?? "text-google-dark"
         )}
       >
         {title}
       </h2>
       {description && (
-        <p className="mt-4 text-lg text-muted-foreground">{description}</p>
+        <p className="mt-4 text-[1rem] text-google-gray">{description}</p>
       )}
     </motion.div>
   );

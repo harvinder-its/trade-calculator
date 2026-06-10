@@ -1,6 +1,5 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUp } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -22,11 +21,7 @@ export function BackToTop() {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.8 }}
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className={cn(
-            "fixed bottom-6 right-6 z-50 flex h-12 w-12 items-center justify-center rounded-full",
-            "bg-gradient-instagram text-white shadow-glow",
-            "hover:shadow-glow-orange focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
-          )}
+          className="fixed bottom-6 right-6 z-50 flex h-11 w-11 items-center justify-center rounded-full bg-google-blue text-white shadow-button-blue hover:bg-[#1765CC] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-google-blue"
           aria-label="Back to top"
         >
           <ArrowUp className="h-5 w-5" />

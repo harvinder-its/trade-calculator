@@ -1,7 +1,6 @@
 "use client";
 
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 import { faqItems } from "@/data/faq";
 import { cn } from "@/lib/utils";
 import { ChevronDown } from "lucide-react";
@@ -18,20 +17,32 @@ export function FAQ() {
       aria-labelledby="faq-heading"
     >
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          eyebrow="FAQ"
-          title="Frequently Asked Questions"
-          titleId="faq-heading"
-          titleClassName="text-gradient-instagram"
-          description="Everything you need to know about our trade value calculator."
-        />
+        <div className="mb-14 text-center">
+          <span className="text-[13px] font-semibold uppercase tracking-widest text-google-blue">
+            FAQ
+          </span>
+          <h2
+            id="faq-heading"
+            className="mt-3 text-[2rem] font-bold tracking-tight text-google-dark sm:text-[2.5rem]"
+          >
+            Frequently asked questions
+          </h2>
+          <p className="mt-4 text-[1rem] text-google-gray">
+            Everything you need to know about our trade value calculator.
+          </p>
+        </div>
 
-        <dl className="space-y-3">
+        <dl className="space-y-2">
           {faqItems.map((item, index) => {
             const isOpen = openIndex === index;
             return (
-              <ScrollReveal key={item.question} delay={index * 0.05}>
-                <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm dark:bg-white/[0.03]">
+              <ScrollReveal key={item.question} delay={index * 0.04}>
+                <div className={cn(
+                  "rounded-2xl border transition-colors",
+                  isOpen
+                    ? "border-google-blue/30 bg-google-blue-light/30"
+                    : "border-google-gray-border bg-white hover:border-google-gray"
+                )}>
                   <dt>
                     <button
                       type="button"
@@ -39,13 +50,18 @@ export function FAQ() {
                       aria-expanded={isOpen}
                       aria-controls={`faq-answer-${index}`}
                       onClick={() => setOpenIndex(isOpen ? null : index)}
-                      className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left font-semibold text-foreground transition hover:text-brand-500"
+                      className="flex w-full items-center justify-between gap-4 px-6 py-4 text-left"
                     >
-                      {item.question}
+                      <span className={cn(
+                        "text-[15px] font-medium transition-colors",
+                        isOpen ? "text-google-blue" : "text-google-dark"
+                      )}>
+                        {item.question}
+                      </span>
                       <ChevronDown
                         className={cn(
-                          "h-5 w-5 shrink-0 text-muted-foreground transition-transform duration-200",
-                          isOpen && "rotate-180"
+                          "h-5 w-5 shrink-0 transition-transform duration-200",
+                          isOpen ? "rotate-180 text-google-blue" : "text-google-gray"
                         )}
                         aria-hidden
                       />
@@ -60,10 +76,10 @@ export function FAQ() {
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.25 }}
+                        transition={{ duration: 0.22 }}
                         className="overflow-hidden"
                       >
-                        <p className="border-t border-white/10 px-5 py-4 text-muted-foreground">
+                        <p className="border-t border-google-blue/20 px-6 py-4 text-[14px] leading-relaxed text-google-gray">
                           {item.answer}
                         </p>
                       </motion.dd>
